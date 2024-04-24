@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze Game</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div id="landing-page">
+        <h1 id="title-wave">
+            <span>J</span><span>Q</span><span>u</span><span>e</span><span>r</span><span>y</span> 
+            <span>M</span><span>a</span><span>z</span><span>e</span> <span>G</span><span>a</span><span>m</span><span>e</span>
+          </h1>
+        <button class="level-button" id="easy">Easy</button>
+        <button class="level-button" id="medium">Medium</button>
+        <button class="level-button" id="hard">Hard</button>
+    </div>
+    <div id="game-container">
+        <div id="maze"></div>
+        <div class="arrow-keys">
+            <div class="arrow-key" id="up">↑</div>
+            <div class="arrow-key" id="left">←</div>
+            <div class="arrow-key" id="down">↓</div>
+            <div class="arrow-key" id="right">→</div>
+        </div>
+        <div id="timer">Time: <span>0</span> Seconds</div>
+        <div id="score">Score: <span>0</span></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./maze.js"></script>
+</body>
+</html>
