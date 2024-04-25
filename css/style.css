@@ -110,15 +110,16 @@ body, html {
   background-color: #0f0;
 }
 #game-container .arrow-keys {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  width: 160px;
+  height: 160px;
+  margin: 20px auto;
+  position: relative;
 }
 #game-container .arrow-keys .arrow-key {
   width: 50px;
   height: 50px;
   line-height: 50px;
-  margin: 5px;
+  position: absolute;
   text-align: center;
   background: #4d4d4d;
   color: #fff;
@@ -133,6 +134,22 @@ body, html {
 #game-container .arrow-keys .arrow-key:hover, #game-container .arrow-keys .arrow-key.active {
   background-color: #666666;
   transform: scale(1.1);
+}
+#game-container .arrow-keys #up {
+  top: 0;
+  left: 50px;
+}
+#game-container .arrow-keys #down {
+  top: 55px;
+  left: 50px;
+}
+#game-container .arrow-keys #left {
+  top: 55px;
+  left: -10px;
+}
+#game-container .arrow-keys #right {
+  top: 55px;
+  left: 110px;
 }
 #game-container #timer, #game-container #score {
   color: #fff;
