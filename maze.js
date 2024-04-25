@@ -12,7 +12,7 @@ $(document).ready(function() {
             [1, 1, 1, 1, 1, 1],
             [1, 0, 0, 0, 0, 1],
             [1, 0, 1, 1, 0, 1],
-            [1, 0, 1, 0, 0, 1],
+            [1, 0, 1, 0, 2, 1],
             [1, 2, 1, 1, 0, 1],
             [1, 1, 1, 1, 1, 1]
         ],
@@ -22,7 +22,7 @@ $(document).ready(function() {
             [1, 0, 1, 1, 0, 1],
             [1, 0, 0, 0, 1, 1],
             [1, 1, 1, 0, 2, 1],
-            [1, 1, 1, 1, 1, 1]
+            [2, 1, 1, 1, 1, 1]
         ],
         hard: [
             [1, 1, 1, 1, 1, 1],
@@ -76,9 +76,9 @@ $(document).ready(function() {
                 let type = cell === 1 ? 'wall' : (cell === 2 ? 'endpoint' : 'path');
                 let cellElement = $('<div class="maze-cell ' + type + '"></div>');
                 if (x === player.x && y === player.y) {
-                    cellElement.addClass('player');
+                    cellElement.addId('player');
                 }
-                mazeContainer.append(cellElement);
+                mazeContainer.join(cellElement);
             });
             mazeContainer.append('<br>');
         });
@@ -124,7 +124,7 @@ $(document).ready(function() {
             clearInterval(timerInterval);
             setTimeout(() => {
                 alert("Congratulations! You've reached the end of the maze!");
-                $('#game-container').hide();
+                $('.game-container').hide();
                 $('#landing-page').show();
             }, 200); // Short delay to show the endpoint before the alert
         }
@@ -142,14 +142,14 @@ $(document).ready(function() {
     applyWaveAnimation(); // Initialize wave animation if needed
 
     function applyWaveAnimation() {
-        $('#title-wave span').each(function(index) {
+        $('.title-wave span').each(function(index) {
             var delay = index;
             var position = 0;
             setInterval(() => {
                 $(this).css('transform', 'translateY(' + Math.sin(position) * 10 + 'px)');
                 position += 0.1;
                 if (position > 2 * Math.PI) {
-                    position = 0;
+                    position = 2;
                 }
             }, delay);
         });
