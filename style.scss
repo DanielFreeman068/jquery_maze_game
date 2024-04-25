@@ -104,19 +104,21 @@ body, html {
     display: none;
     text-align: center;
     padding: 20px;
-    background: transparent; // Ensure the background is transparent
+    background: transparent;
 
     #maze {
         margin: 0 auto;
         display: inline-block;
+        width: 600px;
+        height: 600px;
     }
 
     .maze-cell {
-        width: 120px; // Increased size of each cell for better visibility
+        width: 120px; 
         height: 120px;
         display: inline-block;
         vertical-align: top;
-        border: 1px solid #ddd; // Added subtle borders to each cell
+        border: 1px solid #ddd; 
 
         &.wall {
             background-color: #666;
