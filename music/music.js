@@ -46,7 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('startAudio').addEventListener('click', function() {
     audioCtx.resume().then(() => {
       playSong(currentSongIndex);
-      drawVisualizer();
     });
   });
 
