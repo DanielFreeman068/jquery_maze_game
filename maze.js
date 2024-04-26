@@ -4,9 +4,14 @@ $(document).ready(function() {
     let endpoint = { x: 0, y: 0 }; 
     const mazeContainer = $('#maze');
     let timerInterval;
+    let startTime;
+    let score;
+    const scoreDecrement = 10;
+    let currentLevel = 'easy'; 
 
+    
 
-    // So letting you know 1 is a border block, 0 is a block that the user can move in, and 2 is the goal
+    
     const mazes = {
         easy: [
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -86,8 +91,9 @@ $(document).ready(function() {
             [1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 ,1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1],
             [1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0 ,0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1],
+            
             ],
-         cornell: [
+        cornell: [
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
             [1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0 ,0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
             [1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1 ,1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -134,23 +140,32 @@ $(document).ready(function() {
             ]
     };
 
+    $('#leaderboard-container').hide();
+
+
     $('.level-button').on('click', function() {
-        let level = $(this).attr('id');
-        startGame(level);
+        currentLevel = $(this).data('level'); 
+        startGame(currentLevel);
     });
 
-
     function startGame(level) {
+        currentLevel = level; 
         $('#landing-page').hide();
         $('#game-container').show();
+        $('#leaderboard-container').show();
         initializeMaze(level);
         resetTimer();
+        updateLeaderboardDisplay();
     }
+
 
     function initializeMaze(level) {
         maze = mazes[level];
         findPlayerAndEndpoint();
         drawMaze();
+        startTime = new Date();
+        score = 1000; 
+        updateScore();
     }
 
     function findPlayerAndEndpoint() {
@@ -173,15 +188,17 @@ $(document).ready(function() {
         mazeContainer.empty();
         const numRows = maze.length;
         const numCols = maze[0].length;
-        const cellSize = Math.min(600 / numRows, 600 / numCols);
+        
+        const cellWidth = Math.floor(600 / numCols);
+        const cellHeight = Math.floor(600 / numRows);
     
         maze.forEach((row, y) => {
             row.forEach((cell, x) => {
                 let type = cell === 1 ? 'wall' : (cell === 2 ? 'endpoint' : 'path');
                 let cellElement = $('<div class="maze-cell ' + type + '"></div>');
                 cellElement.css({
-                    width: `${cellSize}px`,
-                    height: `${cellSize}px`,
+                    width: `${cellWidth}px`,
+                    height: `${cellHeight}px`,
                     opacity: '0' 
                 });
     
@@ -195,16 +212,19 @@ $(document).ready(function() {
     
                 mazeContainer.append(cellElement);
             });
-            mazeContainer.append('<br style="clear: both;">');
+            mazeContainer.append('<div style="clear: both;"></div>'); 
         });
     }
+    
     
 
     function resetTimer() {
         clearInterval(timerInterval);
-        let startTime = new Date();
         timerInterval = setInterval(function() {
-            $('#timer span').text(((new Date - startTime) / 1000).toFixed(2) + " Seconds");
+            let elapsed = (new Date() - startTime) / 1000;
+            $('#timer span').text(elapsed.toFixed(2) + " Seconds");
+            score = Math.max(0, 1000 - Math.floor(elapsed) * scoreDecrement); 
+            updateScore();
         }, 1000);
     }
 
@@ -235,15 +255,47 @@ $(document).ready(function() {
         return maze[pos.y] && (maze[pos.y][pos.x] === 0 || maze[pos.y][pos.x] === 2);
     }
 
+    function updateScore() {
+        $('#score span').text(score);
+    }
+
+    function promptForName() {
+        let playerName = prompt("You've completed the maze! Enter your initials:", "");
+        if (playerName && playerName.length <= 3) {
+            saveScore(playerName.toUpperCase(), score);
+        }
+    }
+
     function checkWin() {
         if (player.x === endpoint.x && player.y === endpoint.y) {
             clearInterval(timerInterval);
             setTimeout(() => {
-                alert("Congratulations! You've reached the end of the maze!");
+                promptForName();
                 $('#game-container').hide();
                 $('#landing-page').show();
-            }, 200); 
+                $('#leaderboard-container').hide();  
+            }, 200);
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 } 
+            });
         }
+    }
+
+    function saveScore(name, score) {
+        let scores = JSON.parse(localStorage.getItem(currentLevel + 'Scores')) || [];
+        scores.push({ name, score });
+        scores.sort((a, b) => b.score - a.score);
+        scores = scores.slice(0, 5); 
+        localStorage.setItem(currentLevel + 'Scores', JSON.stringify(scores));
+        updateLeaderboardDisplay();
+    }
+
+    function updateLeaderboardDisplay() {
+        let scores = JSON.parse(localStorage.getItem(currentLevel + 'Scores')) || [];
+        let listHtml = scores.map(s => `<li>${s.name}: ${s.score}</li>`).join('');
+        $('#leaderboard-list').html(listHtml);
     }
 
     $('.arrow-key').hover(

@@ -5,23 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maze Game</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <a href="./ALANPAWSOFFTHISISMINE.html"><button id="secret"></button></a>
+    <a href="./ALANPAWSOFFTHISISMINE.html"><button id="secret" ></button></a>
 
     <div id="landing-page">
         <h1 id="title-wave">
             <span>J</span><span>Q</span><span>u</span><span>e</span><span>r</span><span>y</span> 
             <span>M</span><span>a</span><span>z</span><span>e</span> <span>G</span><span>a</span><span>m</span><span>e</span>
         </h1>
-        <button class="level-button" id="easy">Easy</button>
-        <button class="level-button" id="medium">Medium</button>
-        <button class="level-button" id="hard">Hard</button>
+        <button class="level-button" id="easy" data-level="easy">Easy</button>
+        <button class="level-button" id="medium" data-level="medium">Medium</button>
+        <button class="level-button" id="hard" data-level="hard">Hard</button>
+        
     </div>
     <div id="game-container">
+        <div class="gameboy-outer">
+            <div class="screen-border">
         <div id="maze"></div>
+        <div class="power-indicator"></div>
+        <div class="speaker-grill"></div>
         <div class="arrow-keys">
             <div class="arrow-key" id="up">↑</div>
             <div class="arrow-key" id="left">←</div>
@@ -32,6 +38,15 @@
         <div id="timer">Time: <span>0</span></div>
         <div id="score">Score: <span>0</span></div>
     </div>
+
+    <div id="leaderboard-container">
+        <h3>Leaderboard</h3>
+        <ul id="leaderboard-list">
+            <!-- Scores will be listed here -->
+        </ul>
+    </div>
+    
+
 
     <div class="controls">
         <label class="switch">
@@ -49,7 +64,7 @@
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./maze.js"></script>
-    <script src="./music/music.js"></script>
+    <script src="./maze.js" defer></script>
+    <script src="./music/music.js" defer></script>
 </body>
 </html>

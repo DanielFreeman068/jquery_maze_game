@@ -19,7 +19,21 @@ body, html {
   background-image: linear-gradient(0deg, #3b3b3b 1px, transparent 1px), linear-gradient(90deg, #3b3b3b 1px, transparent 1px);
   background-size: 50px 50px;
   background-position: 0 0;
-  animation: moveGrid 20s linear infinite;
+  -webkit-animation: moveGrid 20s linear infinite;
+          animation: moveGrid 20s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #333;
+}
+
+@-webkit-keyframes moveGrid {
+  0% {
+    background-position: 0 0, 0 0;
+  }
+  100% {
+    background-position: 1000px 1000px, 1000px 1000px;
+  }
 }
 
 @keyframes moveGrid {
@@ -31,9 +45,17 @@ body, html {
   }
 }
 #landing-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  position: relative;
-  top: 20%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
 }
 #landing-page #title-wave {
   font-size: 6em;
@@ -109,7 +131,6 @@ body, html {
   vertical-align: top;
   border: none;
   transition: opacity 0.3s ease-in-out;
-  margin: -1px;
 }
 #game-container #maze .maze-cell.wall {
   background-color: #666;
@@ -154,24 +175,20 @@ body, html {
   transform: scale(1.1);
 }
 #game-container .arrow-keys #up {
-  top: 0;
+  top: 20px;
   left: 50px;
 }
 #game-container .arrow-keys #down {
-  top: 55px;
+  top: 85px;
   left: 50px;
 }
 #game-container .arrow-keys #left {
-  top: 55px;
+  top: 85px;
   left: -10px;
 }
 #game-container .arrow-keys #right {
-  top: 55px;
+  top: 85px;
   left: 110px;
-}
-#game-container #timer, #game-container #score {
-  color: #fff;
-  margin-top: 10px;
 }
 
 .switch {
@@ -215,11 +232,11 @@ body, html {
 }
 
 input:checked + .slider {
-  background-color: #2196F3;
+  background-color: #7a7a7a;
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #575757;
 }
 
 input:checked + .slider:before {
@@ -242,7 +259,7 @@ input:checked + .slider:before {
   width: 60px;
   height: 34px;
   margin-right: 5px;
-  background-color: #2196F3;
+  background-color: #333;
   color: white;
   border: none;
   border-radius: 17px;
@@ -256,21 +273,13 @@ input:checked + .slider:before {
   z-index: 1000;
 }
 
-#prevSong {
-  right: 140px;
-}
-
-#nextSong {
-  right: 70px;
-}
-
 #startAudio {
   position: fixed;
   top: 55px;
   right: 10px;
   width: 100px;
   height: 34px;
-  background-color: #2196F3;
+  background-color: #333;
   color: white;
   border: none;
   border-radius: 17px;
@@ -285,7 +294,7 @@ input:checked + .slider:before {
 }
 
 #startAudio:hover {
-  background-color: #1976D2;
+  background-color: #333;
 }
 
 #nowPlaying {
@@ -298,4 +307,84 @@ input:checked + .slider:before {
   font-size: 18px;
   z-index: 20;
   font-family: BoldFont;
-}/*# sourceMappingURL=style.css.map */
+}
+
+#leaderboard-container {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 200px;
+  background-color: #FFF;
+  color: #000;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 5;
+}
+
+.gameboy-outer {
+  background-color: #9bb1a9;
+  width: 700px;
+  height: 900px;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  position: relative;
+}
+.gameboy-outer .screen-border {
+  background-color: #0a1f11;
+  width: 620px;
+  height: 620px;
+  padding: 10px;
+  margin: 50px auto 20px;
+}
+.gameboy-outer .screen-border #maze {
+  width: 600px;
+  height: 600px;
+  margin: auto;
+}
+.gameboy-outer .power-indicator {
+  width: 15px;
+  height: 15px;
+  background-color: #ff4d4d;
+  border-radius: 50%;
+  position: absolute;
+  top: 30px;
+  right: 100px;
+}
+.gameboy-outer .speaker-grill {
+  background-color: #313131;
+  width: 80%;
+  height: 40px;
+  border-radius: 20px;
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#timer {
+  color: #fff;
+  top: 880px;
+  left: 210px;
+  position: absolute;
+  z-index: 1000;
+}
+
+#score {
+  color: #fff;
+  position: absolute;
+  top: 880px;
+  left: 420px;
+  z-index: 1000;
+}
+
+@media (max-width: 600px) {
+  #leaderboard-container {
+    top: 10px;
+    bottom: auto;
+    right: 10px;
+    left: auto;
+  }
+}
+/*# sourceMappingURL=style.css.map */
