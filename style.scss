@@ -109,45 +109,52 @@ body, html {
     display: none;
     text-align: center;
     padding: 20px;
-    background: transparent; // Ensure the background is transparent
+    background: transparent; 
 
     #maze {
+        position: relative;
+        overflow: hidden;
+        width: 600px;
+        height: 600px;
         margin: 0 auto;
-        display: inline-block;
+        background: #000; 
+        .maze-cell {
+            display: inline-block;
+            vertical-align: top;
+            border: none; 
+            transition: opacity 0.3s ease-in-out; 
+            margin: -1px; 
+            &.wall {
+                background-color: #666;
+            }
+            &.path, &.endpoint {
+                background-color: #eee;
+            }
+            &.player {
+                background-color: #f00;
+                box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.5);
+            }
+            &.endpoint {
+                background-color: #0f0;
+            }
+            .player {
+                box-shadow: 0 0 30px 15px rgba(255, 0, 0, 0.75); // Red glow to simulate the player's presence
+            }
+        }
     }
-
-    .maze-cell {
-        width: 120px; // Increased size of each cell for better visibility
-        height: 120px;
-        display: inline-block;
-        vertical-align: top;
-        border: 1px solid #ddd; // Added subtle borders to each cell
-
-        &.wall {
-            background-color: #666;
-        }
-        &.path, &.endpoint {
-            background-color: #eee;
-        }
-        &.player {
-            background-color: #f00;
-        }
-        &.endpoint {
-            background-color: #0f0;
-        }
-    }
+    
 
     .arrow-keys {
-        width: 160px; // Adjust width to fit three keys horizontally
-        height: 160px; // Adjust height to fit three keys vertically
-        margin: 20px auto; // Center the arrow keys below the maze
-        position: relative; // Positioning context for absolute children
+        width: 160px;
+        height: 160px; 
+        margin: 20px auto; 
+        position: relative; 
     
         .arrow-key {
             width: 50px;
             height: 50px;
             line-height: 50px;
-            position: absolute; // Use absolute positioning for individual keys
+            position: absolute; 
             text-align: center;
             background: lighten($background-color, 10%);
             color: $text-color;
@@ -165,22 +172,22 @@ body, html {
     
         #up {
             top: 0;
-            left: 50px; // Center horizontally
+            left: 50px;
         }
     
         #down {
             top: 55px;
-            left: 50px; // Center horizontally
+            left: 50px;
         }
     
         #left {
             top: 55px;
-            left: -10px; // Align to the left
+            left: -10px;
         }
     
         #right {
             top: 55px;
-            left: 110px; // Align to the right
+            left: 110px; 
         }
     }
 

@@ -99,7 +99,7 @@ $(document).ready(function() {
         mazeContainer.empty();
         const numRows = maze.length;
         const numCols = maze[0].length;
-        const cellSize = Math.min(600 / numRows, 600 / numCols);  
+        const cellSize = Math.min(600 / numRows, 600 / numCols);
     
         maze.forEach((row, y) => {
             row.forEach((cell, x) => {
@@ -107,16 +107,24 @@ $(document).ready(function() {
                 let cellElement = $('<div class="maze-cell ' + type + '"></div>');
                 cellElement.css({
                     width: `${cellSize}px`,
-                    height: `${cellSize}px`
+                    height: `${cellSize}px`,
+                    opacity: '0' 
                 });
+    
+                if (Math.abs(x - player.x) <= 2 && Math.abs(y - player.y) <= 2) {
+                    cellElement.css('opacity', '1'); 
+                }
+    
                 if (x === player.x && y === player.y) {
                     cellElement.addClass('player');
                 }
+    
                 mazeContainer.append(cellElement);
             });
-            mazeContainer.append('<br style="clear: both;">'); 
+            mazeContainer.append('<br style="clear: both;">');
         });
     }
+    
 
     function resetTimer() {
         clearInterval(timerInterval);

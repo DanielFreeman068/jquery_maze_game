@@ -83,7 +83,7 @@ body, html {
   background-color: #FFC107;
 }
 #landing-page #hard {
-  background-color: #3b3b3b;
+  background-color: #F44336;
 }
 
 #game-container {
@@ -93,29 +93,35 @@ body, html {
   background: transparent;
 }
 #game-container #maze {
-  margin: 0 auto;
-  display: inline-block;
+  position: relative;
+  overflow: hidden;
   width: 600px;
   height: 600px;
+  margin: 0 auto;
+  background: #000;
 }
-#game-container .maze-cell {
-  width: 120px;
-  height: 120px;
+#game-container #maze .maze-cell {
   display: inline-block;
   vertical-align: top;
-  border: 1px solid #ddd;
+  border: none;
+  transition: opacity 0.3s ease-in-out;
+  margin: -1px;
 }
-#game-container .maze-cell.wall {
+#game-container #maze .maze-cell.wall {
   background-color: #666;
 }
-#game-container .maze-cell.path, #game-container .maze-cell.endpoint {
+#game-container #maze .maze-cell.path, #game-container #maze .maze-cell.endpoint {
   background-color: #eee;
 }
-#game-container .maze-cell.player {
+#game-container #maze .maze-cell.player {
   background-color: #f00;
+  box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.5);
 }
-#game-container .maze-cell.endpoint {
+#game-container #maze .maze-cell.endpoint {
   background-color: #0f0;
+}
+#game-container #maze .maze-cell .player {
+  box-shadow: 0 0 30px 15px rgba(255, 0, 0, 0.75);
 }
 #game-container .arrow-keys {
   width: 160px;
