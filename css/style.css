@@ -6,6 +6,7 @@
   top: 0;
   left: 0;
   background-color: #333;
+  z-index: 9998;
 }
 
 body, html {
@@ -19,21 +20,11 @@ body, html {
   background-image: linear-gradient(0deg, #3b3b3b 1px, transparent 1px), linear-gradient(90deg, #3b3b3b 1px, transparent 1px);
   background-size: 50px 50px;
   background-position: 0 0;
-  -webkit-animation: moveGrid 20s linear infinite;
-          animation: moveGrid 20s linear infinite;
+  animation: moveGrid 20s linear infinite;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #333;
-}
-
-@-webkit-keyframes moveGrid {
-  0% {
-    background-position: 0 0, 0 0;
-  }
-  100% {
-    background-position: 1000px 1000px, 1000px 1000px;
-  }
 }
 
 @keyframes moveGrid {
@@ -386,5 +377,4 @@ input:checked + .slider:before {
     right: 10px;
     left: auto;
   }
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
