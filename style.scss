@@ -150,25 +150,36 @@ body, html {
                 background-color: #eee;
             }
             &.player {
-                background-color: #f00;
-                box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.5);
+              background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrvxFqHMOvlT4ZoNAMlgWNclw6UJddA9mLm6zddAilskDqVpQAZwSGR0NVfoT4KviKZys&usqp=CAU");
+              background-repeat: no-repeat;
+              background-size: cover;
+                // background-color: #f00;
+                // box-shadow: 0 0 20px 10px rgba(76, 42, 42, 0.5);
+              box-shadow:
+              1px 1px 20px 10px rgba(255, 0, 0, 0.412),
+              -1px -1px 5px 2px rgba(255, 0, 0, 0.412),
+              3px 3px 7px 1px rgba(255, 0, 0, 0.412) inset;
+              ;
+              position: relative;
+              
+
+              
             }
             &.endpoint {
                 background-color: #0f0;
             }
             .player {
-                box-shadow: 0 0 30px 15px rgba(255, 0, 0, 0.75); 
+                // box-shadow: 0 0 30px 15px rgba(255, 0, 0, 0.75); 
             }
         }
     }
-    
 
     .arrow-keys {
         width: 160px;
         height: 160px; 
         margin: 20px auto; 
         position: relative; 
-    
+
         .arrow-key {
             width: 50px;
             height: 50px;
@@ -182,35 +193,33 @@ body, html {
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
-    
+
             &:hover, &.active {
                 background-color: lighten($background-color, 20%);
                 transform: scale(1.1);
             }
         }
-    
+
         #up {
             top: 20px;
             left: 50px;
         }
-    
+
         #down {
             top: 85px;
             left: 50px;
         }
-    
+
         #left {
             top: 85px;
             left: -10px;
         }
-    
+
         #right {
             top: 85px;
             left: 110px; 
         }
     }
-
-
 }
 
 .switch {
@@ -222,13 +231,13 @@ body, html {
     height: 34px;
     z-index: 9999; 
   }
-  
+
   .switch input { 
     opacity: 0;
     width: 0;
     height: 0;
   }
-  
+
   .slider {
     position: absolute;
     cursor: pointer;
@@ -240,7 +249,7 @@ body, html {
     transition: .4s;
     border-radius: 34px;
   }
-  
+
   .slider:before {
     position: absolute;
     content: "";
@@ -252,27 +261,27 @@ body, html {
     transition: .4s;
     border-radius: 50%;
   }
-  
+
   input:checked + .slider {
     background-color: #7a7a7a;
   }
-  
+
   input:focus + .slider {
     box-shadow: 0 0 1px #575757;
   }
-  
+
   input:checked + .slider:before {
     transform: translateX(26px);
   }
-  
+
   .slider.round {
     border-radius: 34px;
   }
-  
+
   .slider.round:before {
     border-radius: 50%;
   }
-  
+
   .song-control {
     position: fixed;
     top: 10px;
@@ -292,8 +301,7 @@ body, html {
     user-select: none; 
     z-index: 1000; 
   }
-  
-  
+
   #startAudio {
     position: fixed;
     top: 55px;  
@@ -311,12 +319,11 @@ body, html {
     user-select: none; 
     z-index: 9998; 
   }
-  
+
   #startAudio:hover {
     background-color: #333;
   }
-  
-  
+
   #nowPlaying {
     position: fixed;
     bottom: 10px;
@@ -334,24 +341,30 @@ body, html {
     bottom: 10px;
     left: 10px;
     width: 200px;
-    background-color: #FFF;
+    background-color: $gameboy-bg;
     color: #000;
     padding: 10px;
     border-radius: 5px;
     z-index: 5; 
+    border: 1px solid black;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 1.2);
+  }
 
+  #leaderboard-container h3{
+    font-size:30px;
+    font-family:monospace;
   }
 
   .gameboy-outer {
-    background-color: $gameboy-bg;
+    background-color: $gameboy-bg; 
     width: 700px; 
     height: 900px; 
     padding: 20px; 
     border-radius: 20px; 
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 1.2); 
     margin: auto; 
-    position: relative;
-    
+    position: relative; 
+
     .screen-border {
       background-color: $screen-border;
       width: 620px; 
@@ -365,7 +378,7 @@ body, html {
         margin: auto;
       }
     }
-  
+
     .power-indicator {
       width: 15px; 
       height: 15px; 
@@ -396,7 +409,7 @@ body, html {
     position: absolute;
     z-index: 1000;
   }
-  
+
   #score {
     color: #fff;
     position: absolute;
@@ -413,4 +426,3 @@ body, html {
       left: auto;
     }
   }
-  

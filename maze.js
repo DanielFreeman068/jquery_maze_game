@@ -215,8 +215,6 @@ $(document).ready(function() {
             mazeContainer.append('<div style="clear: both;"></div>'); 
         });
     }
-    
-    
 
     function resetTimer() {
         clearInterval(timerInterval);
