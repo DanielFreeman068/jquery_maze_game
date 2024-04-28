@@ -145,20 +145,26 @@ body, html {
             border: none; 
             transition: opacity 0.3s ease-in-out; 
             &.wall {
-                background-color: #666;
-            }
-            &.path, &.endpoint {
-                background-color: #eee;
+                // background-color: $gameboy-bg;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background: url("./brick-wall.webp");
             }
             &.player {
-                background-color: #f00;
-                box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.5);
+                // background-color: #f00
+                background-image: url("./pixilart-drawing.png");
+                background-repeat: no-repeat;
+                background-size: cover;
+                box-shadow:
+                0 0 50px #fff,
+                -10px 0 80px #f0f,
+                10px 0 80px #0ff;
             }
             &.endpoint {
                 background-color: #0f0;
             }
             .player {
-                box-shadow: 0 0 30px 15px rgba(255, 0, 0, 0.75); 
+                // box-shadow: 0 0 30px 15px rgba(255, 0, 0, 0.75); 
             }
         }
     }
@@ -335,12 +341,17 @@ body, html {
     bottom: 10px;
     left: 10px;
     width: 200px;
-    background-color: #FFF;
+    background-color: $gameboy-bg;
     color: #000;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 15px;
+    border:2px solid black;
     z-index: 5; 
+  }
 
+  #leaderboard-container h3{
+    font-size:30px;
+    font-family:monospace;
   }
 
   .gameboy-outer {

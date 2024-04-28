@@ -124,20 +124,18 @@ body, html {
   transition: opacity 0.3s ease-in-out;
 }
 #game-container #maze .maze-cell.wall {
-  background-color: #666;
-}
-#game-container #maze .maze-cell.path, #game-container #maze .maze-cell.endpoint {
-  background-color: #eee;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: url("./brick-wall.webp");
 }
 #game-container #maze .maze-cell.player {
-  background-color: #f00;
-  box-shadow: 0 0 20px 10px rgba(255, 0, 0, 0.5);
+  background-image: url("./pixilart-drawing.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  box-shadow: 0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff;
 }
 #game-container #maze .maze-cell.endpoint {
   background-color: #0f0;
-}
-#game-container #maze .maze-cell .player {
-  box-shadow: 0 0 30px 15px rgba(255, 0, 0, 0.75);
 }
 #game-container .arrow-keys {
   width: 160px;
@@ -305,11 +303,17 @@ input:checked + .slider:before {
   bottom: 10px;
   left: 10px;
   width: 200px;
-  background-color: #FFF;
+  background-color: #9bb1a9;
   color: #000;
   padding: 10px;
-  border-radius: 5px;
+  border-radius: 15px;
+  border: 2px solid black;
   z-index: 5;
+}
+
+#leaderboard-container h3 {
+  font-size: 30px;
+  font-family: monospace;
 }
 
 .gameboy-outer {
