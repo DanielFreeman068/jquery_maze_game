@@ -8,10 +8,12 @@ $(document).ready(function() {
     let score;
     const scoreDecrement = 10;
     let currentLevel = 'easy'; 
+    let powa = 0
+    const med = document.getElementById('medium');
+    const har = document.getElementById('hard');
+    med.classList.add('medium');
+    har.classList.add('hard');
 
-    
-
-    
     const mazes = {
         easy: [
             [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1],
@@ -157,13 +159,31 @@ $(document).ready(function() {
     });
 
     function startGame(level) {
-        currentLevel = level; 
+        currentLevel = level;
+        if(currentLevel == 'easy' && powa >= 0){
+            $('#landing-page').hide();
+            $('#game-container').show();
+            $('#leaderboard-container').show();
+            initializeMaze(level);
+            resetTimer();
+            updateLeaderboardDisplay();
+        } else if(currentLevel == 'medium' && powa >= 1){
         $('#landing-page').hide();
         $('#game-container').show();
         $('#leaderboard-container').show();
         initializeMaze(level);
         resetTimer();
         updateLeaderboardDisplay();
+        } else if (currentLevel == 'hard' && powa >= 2){
+            $('#landing-page').hide();
+            $('#game-container').show();
+            $('#leaderboard-container').show();
+            initializeMaze(level);
+            resetTimer();
+            updateLeaderboardDisplay();
+        } else {
+            alert("Beat the former level to attempt this")
+        }
     }
 
 
@@ -276,12 +296,20 @@ $(document).ready(function() {
 
     function checkWin() {
         if (player.x === endpoint.x && player.y === endpoint.y) {
+            powa++;
+            if(currentLevel == 'easy'){
+                med.classList.add('magic1');
+                med.classList.remove('medium');
+            } else if (currentLevel == 'medium'){
+                har.classList.add('magic');
+                har.classList.remove('hard');
+            }
             clearInterval(timerInterval);
             setTimeout(() => {
                 promptForName();
                 $('#game-container').hide();
                 $('#landing-page').show();
-                $('#leaderboard-container').hide();  
+                $('#leaderboard-container').hide();
             }, 200);
             confetti({
                 particleCount: 100,

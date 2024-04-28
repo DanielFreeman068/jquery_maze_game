@@ -116,14 +116,22 @@ body, html {
     #easy {
         background-color: $easy-color;
     }
+}
 
-    #medium {
-        background-color: $medium-color;
-    }
+.medium {
+  background-color: gray;
+}
 
-    #hard {
-        background-color: $hard-color;
-    }
+.hard {
+  background-color: gray;
+}
+
+.magic{
+  background-color: $hard-color;
+}
+
+.magic1{
+  background-color: $medium-color;
 }
 
 #game-container {
@@ -145,17 +153,16 @@ body, html {
             border: none; 
             transition: opacity 0.3s ease-in-out; 
             &.wall {
-                // background-color: $gameboy-bg;
-                background-repeat: no-repeat;
-                background-size: cover;
-                background: url("./brick-wall.webp");
+                background-color: $gameboy-bg;
             }
             &.player {
-                // background-color: #f00
-                background-image: url("./pixilart-drawing.png");
-                background-repeat: no-repeat;
-                background-size: cover;
+                border-radius: 50%;
                 box-shadow:
+                inset 0 0 50px #fff,
+                inset 20px 0 80px #f0f,
+                inset -20px 0 80px #0ff,
+                inset 20px 0 300px #f0f,
+                inset -20px 0 300px #0ff,
                 0 0 50px #fff,
                 -10px 0 80px #f0f,
                 10px 0 80px #0ff;
@@ -164,7 +171,7 @@ body, html {
                 background-color: #0f0;
             }
             .player {
-                // box-shadow: 0 0 30px 15px rgba(255, 0, 0, 0.75); 
+                box-shadow: 0 0 30px 15px rgba(255, 0, 0, 0.75); 
             }
         }
     }
