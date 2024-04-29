@@ -174,7 +174,7 @@ $(document).ready(function() {
         initializeMaze(level);
         resetTimer();
         updateLeaderboardDisplay();
-        } else if (currentLevel == 'hard' && powa >= 2){
+        } else if (currentLevel == 'hard' && powa >= 100){
             $('#landing-page').hide();
             $('#game-container').show();
             $('#leaderboard-container').show();
@@ -182,7 +182,13 @@ $(document).ready(function() {
             resetTimer();
             updateLeaderboardDisplay();
         } else {
-            alert("Beat the former level to attempt this")
+            if(currentLevel == "medium"){
+                alert(`Beat the Easy level before attempting this`);
+            } else if (currentLevel == "hard" && powa < 1){
+                alert(`You still have to beat the Easy and Medium levels before attempting this`);
+            } else {
+                alert(`You must complete the Medium level to attempt this`);
+            }
         }
     }
 
@@ -296,13 +302,14 @@ $(document).ready(function() {
 
     function checkWin() {
         if (player.x === endpoint.x && player.y === endpoint.y) {
-            powa++;
             if(currentLevel == 'easy'){
                 med.classList.add('magic1');
                 med.classList.remove('medium');
+                powa += 1;
             } else if (currentLevel == 'medium'){
                 har.classList.add('magic');
                 har.classList.remove('hard');
+                powa += 100;
             }
             clearInterval(timerInterval);
             setTimeout(() => {
