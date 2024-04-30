@@ -134,11 +134,16 @@ body, html {
   transition: opacity 0.3s ease-in-out;
 }
 #game-container #maze .maze-cell.wall {
-  background-color: #9bb1a9;
+  background-image: url("https://t3.ftcdn.net/jpg/05/42/79/16/360_F_542791638_t9Qf1E0CyMESFB5a7JagAaTzQJF0JGzM.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 #game-container #maze .maze-cell.player {
+  background-image: url("https://pbs.twimg.com/media/CJpBeBUWUAETykg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 50%;
-  box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #f0f, inset -20px 0 80px #0ff, inset 20px 0 300px #f0f, inset -20px 0 300px #0ff, 0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff;
+  box-shadow: 0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff;
 }
 #game-container #maze .maze-cell.endpoint {
   background-color: #0f0;
@@ -315,13 +320,6 @@ input:checked + .slider:before {
   border-radius: 15px;
   border: 2px solid black;
   z-index: 5;
-  border: 1px solid black;
-  box-shadow: 0 20px 40px rgb(0, 0, 0);
-}
-
-#leaderboard-container h3 {
-  font-size: 30px;
-  font-family: monospace;
 }
 
 #leaderboard-container h3 {
