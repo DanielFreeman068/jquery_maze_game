@@ -160,8 +160,7 @@ body, html {
   line-height: 50px;
   position: absolute;
   text-align: center;
-  background: #4d4d4d;
-  color: #fff;
+  color: #313131;
   font-size: 24px;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -175,20 +174,36 @@ body, html {
   transform: scale(1.1);
 }
 #game-container .arrow-keys #up {
-  top: 20px;
-  left: 50px;
+  top: 30px;
+  left: -125px;
+  background-color: #ffff00;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: 3px solid black;
 }
 #game-container .arrow-keys #down {
-  top: 85px;
-  left: 50px;
+  top: 95px;
+  left: -125px;
+  background-color: #04e368;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: 3px solid black;
 }
 #game-container .arrow-keys #left {
-  top: 85px;
-  left: -10px;
+  top: 60px;
+  left: -190px;
+  background-color: #1e90ff;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: 3px solid black;
 }
 #game-container .arrow-keys #right {
-  top: 85px;
-  left: 110px;
+  top: 60px;
+  left: -60px;
+  background-color: #ff0000;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  border: 3px solid black;
 }
 
 .switch {
@@ -311,25 +326,31 @@ input:checked + .slider:before {
 
 #leaderboard-container {
   position: fixed;
-  bottom: 700px;
-  left: 50px;
+  top: 70px;
+  left: 70px;
   width: 200px;
-  background-color: #9bb1a9;
+  background-color: #552277;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cg %3E%3Ccircle fill='%23552277' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%2348156a' cx='400' cy='400' r='500'/%3E%3Ccircle fill='%233b075e' cx='400' cy='400' r='400'/%3E%3Ccircle fill='%232f0052' cx='400' cy='400' r='300'/%3E%3Ccircle fill='%23230046' cx='400' cy='400' r='200'/%3E%3Ccircle fill='%23000000' cx='400' cy='400' r='100'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
   color: #000;
   padding: 10px;
   border-radius: 15px;
-  border: 2px solid black;
+  border: 5px solid black;
+  box-shadow: 0 20px 40px rgb(0, 0, 0);
   z-index: 5;
 }
 
 #leaderboard-container h3 {
   font-size: 30px;
-  font-family: monospace;
+  font-family: "Permanent Marker", cursive;
 }
 
 .gameboy-outer {
-  background-color: #FFFFFF;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewBox='0 0 20 20'%3E%3Cg fill-opacity='0.03'%3E%3Cpolygon fill='%23000000' points='20 10 10 0 0 0 20 20'/%3E%3Cpolygon fill='%23000000' points='0 10 0 20 10 20'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: #000000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 800 800'%3E%3Cg %3E%3Ccircle fill='%23000000' cx='400' cy='400' r='600'/%3E%3Ccircle fill='%23230046' cx='400' cy='400' r='500'/%3E%3Ccircle fill='%232f0052' cx='400' cy='400' r='400'/%3E%3Ccircle fill='%233b075e' cx='400' cy='400' r='300'/%3E%3Ccircle fill='%2348156a' cx='400' cy='400' r='200'/%3E%3Ccircle fill='%23552277' cx='400' cy='400' r='100'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
   width: 700px;
   height: 900px;
   padding: 20px;
@@ -337,16 +358,7 @@ input:checked + .slider:before {
   box-shadow: 0 20px 40px rgb(0, 0, 0);
   margin: auto;
   position: relative;
-}
-.gameboy-outer .shadow {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  background-color: #333;
-  width: 50px;
-  height: 941px;
-  opacity: 70%;
-  border-bottom-right-radius: 20px;
+  border: 5px solid black;
 }
 .gameboy-outer .screen-border {
   background-color: #0a1f11;
@@ -354,6 +366,7 @@ input:checked + .slider:before {
   height: 620px;
   padding: 10px;
   margin: 50px auto 20px;
+  border: 5px solid black;
 }
 .gameboy-outer .screen-border #maze {
   width: 600px;
@@ -363,14 +376,17 @@ input:checked + .slider:before {
 .gameboy-outer .power-indicator {
   width: 15px;
   height: 15px;
-  background-color: #ff4d4d;
+  background-color: #FF0000; /* Red color */
   border-radius: 50%;
   position: absolute;
   top: 30px;
   right: 100px;
+  box-shadow: 0 0 10px 5px rgba(255, 0, 0, 0.5); /* Red glow effect */
 }
 .gameboy-outer .speaker-grill {
-  background-color: #313131;
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' %3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(0,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23000000'/%3E%3Cstop offset='1' stop-color='%23000000'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpattern id='b' width='7' height='7' patternUnits='userSpaceOnUse'%3E%3Ccircle fill='%23ffffff' cx='3.5' cy='3.5' r='3.5'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23a)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23b)' fill-opacity='0.1'/%3E%3C/svg%3E");
+  background-attachment: fixed;
   width: 80%;
   height: 40px;
   border-radius: 20px;
@@ -382,18 +398,20 @@ input:checked + .slider:before {
 
 #timer {
   color: #fff;
-  top: 880px;
+  top: 650px;
   left: 210px;
   position: absolute;
   z-index: 1000;
+  font-family: "Permanent Marker", cursive;
 }
 
 #score {
   color: #fff;
   position: absolute;
-  top: 880px;
+  top: 650px;
   left: 420px;
   z-index: 1000;
+  font-family: "Permanent Marker", cursive;
 }
 
 @media (max-width: 600px) {
