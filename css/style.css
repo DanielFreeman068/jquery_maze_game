@@ -311,8 +311,8 @@ input:checked + .slider:before {
 
 #leaderboard-container {
   position: fixed;
-  bottom: 10px;
-  left: 10px;
+  bottom: 700px;
+  left: 50px;
   width: 200px;
   background-color: #9bb1a9;
   color: #000;
@@ -328,7 +328,8 @@ input:checked + .slider:before {
 }
 
 .gameboy-outer {
-  background-color: #9bb1a9;
+  background-color: #FFFFFF;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='25' viewBox='0 0 20 20'%3E%3Cg fill-opacity='0.03'%3E%3Cpolygon fill='%23000000' points='20 10 10 0 0 0 20 20'/%3E%3Cpolygon fill='%23000000' points='0 10 0 20 10 20'/%3E%3C/g%3E%3C/svg%3E");
   width: 700px;
   height: 900px;
   padding: 20px;
@@ -336,6 +337,16 @@ input:checked + .slider:before {
   box-shadow: 0 20px 40px rgb(0, 0, 0);
   margin: auto;
   position: relative;
+}
+.gameboy-outer .shadow {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-color: #333;
+  width: 50px;
+  height: 941px;
+  opacity: 70%;
+  border-bottom-right-radius: 20px;
 }
 .gameboy-outer .screen-border {
   background-color: #0a1f11;
