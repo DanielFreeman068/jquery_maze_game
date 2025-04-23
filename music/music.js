@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
   const songs = [
+    { src: './music/blackholesun.mp3', title: 'Cornell Jams' },
     { src: './music/lofijam.mp3', title: 'Lofi Jams' },
   ];
   let currentSongIndex = 0;
@@ -30,25 +31,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
   toggleCheckbox.addEventListener('change', function() {
     if (this.checked) {
-      bgMusic.play();
-      nowPlaying.textContent = "Now playing... " + songs[currentSongIndex].title;
-      nextSongBtn.disabled = false;
-      prevSongBtn.disabled = false;
-    } else {
       bgMusic.pause();
       nowPlaying.textContent = "Now playing... Nothing!";
       nextSongBtn.disabled = true;
       prevSongBtn.disabled = true;
+    } else {
+      bgMusic.play();
+      nowPlaying.textContent = "Now playing... " + songs[currentSongIndex].title;
+      nextSongBtn.disabled = false;
+      prevSongBtn.disabled = false;
     }
   });
-
   
-  document.getElementById('startAudio').addEventListener('click', function() {
-    audioCtx.resume().then(() => {
-      playSong(currentSongIndex);
-    });
-  });
-
-  
-  playSong(currentSongIndex);
+  playSong(currentSongIndex); 
 });
