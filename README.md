@@ -2,7 +2,7 @@
 
 ## Preview
 
-![Maze Game Preview](mazeGame.png)
+![Maze Game Preview](/pics/mazeGame.png)
 
 ## Description
 This JQUERY maze game allows the player to navigate through a maze of varying difficulty levels. The player can use arrow keys to move through the maze while a timer tracks how quickly they complete the game. The game can be customized by modifying the maze layout, adjusting the timer, or adding obstacles.
