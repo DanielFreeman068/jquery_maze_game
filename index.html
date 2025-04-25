@@ -27,33 +27,32 @@
         <div id="maze"></div>
         <div class="power-indicator"></div>
         <div class="speaker-grill"></div>
+
+        <!-- controls -->
         <div class="arrow-keys">
             <div class="arrow-key" id="up">↑</div>
             <div class="arrow-key" id="left">←</div>
             <div class="arrow-key" id="down">↓</div>
             <div class="arrow-key" id="right">→</div>
         </div>
+
+        <!-- music control -->
+        <div class="controls">
+            <div class="song-control-container">
+                <label class="switch">
+                    <input type="checkbox" id="toggleMusic">
+                    <span class="slider round"></span>
+                </label>
+                <h1 class="song-control-text">Music</h1>
+            </div>
+            <button id="startAudio" class="song-control">Start Audio</button>
+        </div>
+        
         
         <div id="timer">Time: <span>0</span></div>
         <div id="score">Score: <span>0</span></div>
     </div>
-
-    <div id="leaderboard-container">
-        <h3>Leaderboard</h3>
-        <ol id="leaderboard-list">
-            <!-- Scores will be listed here -->
-        </ol>
-    </div>
     
-
-
-    <div class="controls">
-        <label class="switch">
-            <input type="checkbox" id="toggleMusic">
-            <span class="slider round"></span>
-        </label>
-        <button id="startAudio" class="song-control">Start Audio</button>
-    </div>
     <div id="nowPlaying">Now playing...</div>
 
 
