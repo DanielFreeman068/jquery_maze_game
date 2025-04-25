@@ -1,12 +1,17 @@
 # Maze Game
 
+## Preview
+
+![Maze Game Preview](mazeGame.png)
+
 ## Description
-This maze game allows the player to navigate through a maze of varying difficulty levels. The player can use arrow keys to move through the maze while a timer tracks how quickly they complete the game. The game can be customized by modifying the maze layout, adjusting the timer, or adding obstacles.
+This JQUERY maze game allows the player to navigate through a maze of varying difficulty levels. The player can use arrow keys to move through the maze while a timer tracks how quickly they complete the game. The game can be customized by modifying the maze layout, adjusting the timer, or adding obstacles.
 
 ## Installation
 
 1. Download or clone the repository.
 2. Open `index.html` in your preferred browser.
+3. **Note**: This project uses [jQuery](https://jquery.com/) for DOM manipulation. Make sure the jQuery library is included in your HTML.
 
 ## Usage
 
@@ -29,7 +34,7 @@ The game can be restarted by refreshing the page or clicking the "Restart" butto
 
 - **index.html**: The main HTML file that contains the game structure.
 - **style.css**: The CSS file that styles the maze and game elements.
-- **maze.js**: The JavaScript file that handles the maze generation, game logic, timer, and player movement.
+- **game.js**: The JavaScript file that handles the maze generation, game logic, timer, and player movement.
 
 ## Game Logic
 
@@ -60,4 +65,4 @@ You can add more obstacles by changing the maze arrays (increasing the number of
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Acknowledgements
-This project uses jQuery for DOM manipulation. Make sure to include the jQuery library in your HTML.
+This project uses jQuery for DOM manipulation. Visit [jquery.com](https://jquery.com/) to learn more.
