@@ -333,7 +333,7 @@ $(document).ready(function () {
             // Show win celebration for both first-time and replays
             clearInterval(timerInterval);
             setTimeout(() => {
-                alert("Congrats! You found the end");
+                alert(`Congrats! You found the end with a score of ${score}`);
                 $('#game-container').hide();
                 $('#landing-page').show();
                 $('#leaderboard-container').hide();
