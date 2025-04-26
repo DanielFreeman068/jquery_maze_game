@@ -388,10 +388,10 @@ $(document).ready(function () {
     function adjustMazeZoom() {
         const screenWidth = window.innerWidth;
 
-        document.body.style.zoom = "85%";
+        document.body.style.zoom = "75%";
 
         if (screenWidth < 1200 && screenWidth >= 992) {
-            document.body.style.zoom = "85%";
+            document.body.style.zoom = "75%";
         } else if (screenWidth < 992 && screenWidth >= 768) {
             document.body.style.zoom = "75%";
         } else if (screenWidth < 768 && screenWidth >= 576) {
